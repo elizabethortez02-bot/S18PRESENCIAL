@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios</title>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+</head>
+<body>
+
+    <nav>
+        <h2>Mi Portal</h2>
+
+        <div class="menu">
+            <a href="{% url 'inicio' %}">Inicio</a>
+            <a href="{% url 'servicios' %}">Servicios</a>
+            <a href="{% url 'perfil' %}">Mi perfil</a>
+
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Cerrar sesión</button>
+            </form>
+        </div>
+    </nav>
+
+    <main class="contenedor">
+
+        <section class="bienvenida">
+            <h1>Nuestros servicios</h1>
+            <p>Contenido exclusivo para usuarios registrados.</p>
+        </section>
+
+        <section class="tarjetas">
+
+            <div class="tarjeta">
+                <h2>Soporte técnico</h2>
+                <p>Asistencia para resolver problemas tecnológicos.</p>
+            </div>
+
+            <div class="tarjeta">
+                <h2>Consultoría</h2>
+                <p>Orientación y asesoramiento personalizado.</p>
+            </div>
+
+            <div class="tarjeta">
+                <h2>Capacitaciones</h2>
+                <p>Aprendizaje y desarrollo de conocimientos.</p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        Universidad Gerardo Barrios | Práctica Semana 18
+    </footer>
+
+</body>
+</html>

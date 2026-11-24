@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi perfil</title>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+</head>
+<body>
+
+    <nav>
+        <h2>Mi Portal</h2>
+
+        <div class="menu">
+            <a href="{% url 'inicio' %}">Inicio</a>
+            <a href="{% url 'servicios' %}">Servicios</a>
+            <a href="{% url 'perfil' %}">Mi perfil</a>
+
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Cerrar sesión</button>
+            </form>
+        </div>
+    </nav>
+
+    <main class="contenedor">
+
+        <section class="bienvenida">
+            <h1>Mi perfil</h1>
+            <p>Información de tu cuenta personal.</p>
+        </section>
+
+        <div class="tarjeta perfil">
+
+            <div class="avatar">
+                {{ usuario.username|first|upper }}
+            </div>
+
+            <h2>{{ usuario.username }}</h2>
+
+            <p><strong>Usuario:</strong> {{ usuario.username }}</p>
+
+            <p>
+                <strong>Fecha de registro:</strong>
+                {{ usuario.date_joined|date:"d/m/Y" }}
+            </p>
+
+            <p><strong>Estado:</strong> Sesión activa</p>
+
+            <a class="boton" href="{% url 'inicio' %}">
+                Volver al inicio
+            </a>
+
+        </div>
+
+    </main>
+
+    <footer>
+        Universidad Gerardo Barrios | Práctica Semana 18
+    </footer>
+
+</body>
+</html>

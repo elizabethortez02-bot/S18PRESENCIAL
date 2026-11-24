@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio | Mi Portal</title>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+</head>
+<body>
+
+    <nav>
+        <h2>Mi Portal</h2>
+
+        <div class="menu">
+            <a href="{% url 'inicio' %}">Inicio</a>
+            <a href="{% url 'servicios' %}">Servicios</a>
+            <a href="{% url 'perfil' %}">Mi perfil</a>
+
+            {% if usuario.is_authenticated %}
+                <form action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Cerrar sesión</button>
+                </form>
+            {% else %}
+                <a href="{% url 'login' %}">Iniciar sesión</a>
+                <a href="{% url 'registro' %}">Registrarse</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <main class="contenedor">
+        <section class="bienvenida">
+
+            {% if usuario.is_authenticated %}
+                <h1>Bienvenido, {{ usuario.username }}</h1>
+                <p>Has iniciado sesión correctamente.</p>
+            {% else %}
+                <h1>Bienvenido a Mi Portal</h1>
+                <p>Explora nuestra plataforma y descubre nuestros servicios.</p>
+                <a class="boton" href="{% url 'login' %}">
+                    Iniciar sesión
+                </a>
+            {% endif %}
+
+        </section>
+
+        <section class="tarjetas">
+
+            <div class="tarjeta">
+                <h2>Nuestros servicios</h2>
+                <p>Conoce los servicios disponibles para nuestros usuarios.</p>
+                <a class="boton" href="{% url 'servicios' %}">
+                    Ver servicios
+                </a>
+            </div>
+
+            <div class="tarjeta">
+                <h2>Mi perfil</h2>
+                <p>Consulta la información de tu cuenta personal.</p>
+                <a class="boton" href="{% url 'perfil' %}">
+                    Ver perfil
+                </a>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        Universidad Gerardo Barrios | Práctica Semana 18
+    </footer>
+
+</body>
+</html>

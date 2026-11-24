@@ -1,0 +1,271 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* MENU DE NAVEGACION */
+
+nav {
+    background: #0f172a;
+    color: white;
+    padding: 20px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+nav h2 {
+    margin: 0;
+    color: #5eead4;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.menu a:hover {
+    color: #5eead4;
+}
+
+/* CONTENIDO PRINCIPAL */
+
+.contenedor {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+    flex: 1;
+}
+
+.bienvenida {
+    background: linear-gradient(135deg, #0f172a, #0f766e);
+    color: white;
+    padding: 65px 30px;
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.bienvenida h1 {
+    font-size: 36px;
+    margin: 0 0 15px;
+}
+
+.bienvenida p {
+    color: #d1fae5;
+    line-height: 1.6;
+}
+
+/* TARJETAS */
+
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+}
+
+.tarjeta {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-4px);
+}
+
+.tarjeta h2 {
+    color: #0f766e;
+}
+
+.tarjeta p {
+    color: #64748b;
+    line-height: 1.6;
+}
+
+/* BOTONES */
+
+button,
+.boton {
+    display: inline-block;
+    background: #0f766e;
+    color: white;
+    border: none;
+    padding: 13px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover,
+.boton:hover {
+    background: #115e59;
+}
+
+.bienvenida .boton {
+    background: #14b8a6;
+    color: #0f172a;
+    margin-top: 15px;
+}
+
+/* LOGIN Y REGISTRO */
+
+.pagina-formulario {
+    background: linear-gradient(135deg, #0f172a, #0f766e);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 25px;
+}
+
+.formulario {
+    background: white;
+    width: 100%;
+    max-width: 430px;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.formulario h1 {
+    text-align: center;
+    color: #0f172a;
+    margin-top: 0;
+}
+
+.formulario p {
+    color: #64748b;
+    line-height: 1.5;
+}
+
+.formulario label {
+    display: block;
+    font-weight: bold;
+    color: #334155;
+    margin-bottom: 8px;
+}
+
+.formulario input:not([type="hidden"]) {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+}
+
+.formulario input:focus {
+    border-color: #14b8a6;
+    box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.15);
+}
+
+.formulario button {
+    width: 100%;
+    margin-top: 12px;
+}
+
+.formulario a {
+    color: #0f766e;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.campo {
+    margin-bottom: 20px;
+}
+
+/* MENSAJES DE ERROR */
+
+.errorlist {
+    background: #fee2e2;
+    color: #b91c1c;
+    border-radius: 8px;
+    padding: 12px 25px;
+    font-size: 13px;
+}
+
+/* PERFIL */
+
+.perfil {
+    max-width: 500px;
+    margin: auto;
+    text-align: center;
+}
+
+.avatar {
+    width: 90px;
+    height: 90px;
+    background: #0f766e;
+    color: white;
+    font-size: 38px;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px;
+}
+
+/* PIE DE PAGINA */
+
+footer {
+    background: #0f172a;
+    color: #cbd5e1;
+    padding: 25px;
+    text-align: center;
+    font-size: 13px;
+    margin-top: auto;
+}
+
+/* ADAPTACION PARA TELEFONOS */
+
+@media (max-width: 600px) {
+
+    nav {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .menu {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .bienvenida {
+        padding: 40px 20px;
+    }
+
+    .bienvenida h1 {
+        font-size: 27px;
+    }
+
+    .formulario {
+        padding: 25px;
+    }
+}
